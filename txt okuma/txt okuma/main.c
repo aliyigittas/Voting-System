@@ -3,7 +3,7 @@
 //  txt okuma
 //
 //  Created by Ali Yiğit Taş on 11.04.2022.
-// txt sadece ilk satırı okuyor şu anda, isvoted boolu kişiye özel yap, fpirntf kişinin yanında yazmalı şu an altında yazıyor!
+//
 
 #define _CRT_SECURE_NO_WARNINGS
 #pragma warning(suppress : 4996)
