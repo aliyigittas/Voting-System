@@ -4,6 +4,8 @@
 //
 //  Created by Ali Yiğit Taş on 14.04.2022.
 //
+#define _CRT_SECURE_NO_WARNINGS
+#pragma warning(suppress : 4996)
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
