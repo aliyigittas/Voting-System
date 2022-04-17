@@ -15,15 +15,15 @@
 struct userlist {
     char username[50][12];
     char password[50][100];
-    char isvotedstatus[50][10];
-    char vote[50][4];
+    char isvotedstatus[50][1];
+    char vote[50][1];
     
 } list;
 
 
 int main() {
     
-    FILE *in, *vts, *tmpin;
+    FILE *in, *vts;
     
     if ((in = fopen("users.txt", "r+")) == NULL) {
         fputs("Cannot open users.txt file\n", stderr);
@@ -33,28 +33,30 @@ int main() {
         fputs("Cannot open Votestats.txt file\n", stderr);
         return EXIT_FAILURE;
     }
-    if ((tmpin = fopen("tmpin.txt", "w+")) == NULL) {
-        fputs("Cannot open tmpin.txt file\n", stderr);
-        return EXIT_FAILURE;
-    }
     
     
     int secimoy, changevote, yesvote = 0, novote = 0, votecount = 0;
     char username2[12];
     char password2[12];
-    char username3[10][12];
-    char password3[10][12];
-    char isvotedstatus3[10][1];
-    char vote3[10][1];
-    char votestatus[10]; //A notvoted , B voted
-    char vote2[10]; //X not voted, Y yes, N no
+    char username3[50][12];
+    char password3[50][12];
+    char username4[50][12];
+    char password4[50][12];
+    char newpass[100];
+    char isvotedstatus3[50][1];
+    char vote3[50][1];
+    char votestatus[50]; //A means notvoted , B means voted
+    char vote2[50]; //X means not voted, Y means yes, N means no
     bool loggedin = false;
+    bool loggedoff = false;
     
-    //burada oy durumunu dosyadan alıyor
-    for (int j=0;j<10;j++){
+    //
+    for (int j=0;j<50;j++){ //This loop checks txt files for retrieving last the last state.
         fscanf(in, "%11s%*[ \t]%99s ", list.username[j], list.password[j]);
         memcpy(username3[j], list.username[j], sizeof(username3[j]));
+        strcpy(&username4[j],username3[j]);
         memcpy(password3[j], list.password[j], sizeof(password3[j]));
+        strcpy(&password4[j],password3[j]);
         fscanf(vts, "%9s%*[ \t]%4s ", list.isvotedstatus[j], list.vote[j]);
         memcpy(isvotedstatus3[j], list.isvotedstatus[j], sizeof(isvotedstatus3[j]));
         strcpy(&votestatus[j],isvotedstatus3[j]);
@@ -71,13 +73,13 @@ int main() {
     while(votecount!=6){
         printf("Enter your username: ");
         scanf("%s",username2);
-        for (int j=0;j<10;j++){
+        for (int j=0;j<50;j++){
             if (strcmp(username2,username3[j])==0){
                 printf("Enter Your password: ");
                 scanf("%s",password2);
                 if (strcmp(password2,password3[j])==0){
                     loggedin = true;
-                    char newpass[100];
+                    loggedoff = false;
                     printf("\nWelcome %s!\n",username3[j]);
                     printf("Menu:\n");
                     printf("1. Vote Yes\n");
@@ -103,7 +105,7 @@ int main() {
                                 votestatus[j] = 'B';
                                 vote2[j] = 'Y';
                                 fseek(vts,0,SEEK_SET);
-                                for (int i=0;i<10;i++){
+                                for (int i=0;i<50;i++){
                                     fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                                 }
                                 //printf("Votes saved!\n");
@@ -123,7 +125,7 @@ int main() {
                                 votestatus[j] = 'B';
                                 vote2[j] = 'N';
                                 fseek(vts,0,SEEK_SET);
-                                for (int i=0;i<10;i++){
+                                for (int i=0;i<50;i++){
                                     fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                                 }
                                 //printf("Votes saved!\n");
@@ -133,15 +135,19 @@ int main() {
                             
                             printf("Enter your new password: ");
                             scanf("%s", newpass);
-                            if (strlen(newpass) == 6){
-                                //fprintf(in, "%s ", newpass);
-                                //fclose(in);
-                                //printf("Your password is changed. Restart the program to apply changes!\n");
-                                break;
-                            }else{
-                                printf("Your new password have to 6 characters long!\n");
-                                break;
+                            if (strlen(newpass)==6){
+                                strcpy(password4[j],newpass);
+                                printf("Your password is changed. Restart the program to apply changes!\n");
+                                fseek(in,0,SEEK_SET);
+                                for (int i=0;i<50;i++){
+                                    fprintf(in,"%s %s\n", username4[i],password4[i]);
+                                }
+                                fclose(in);
+                            }else {
+                                printf("Your password must be 6 characters long!\n");
                             }
+                            
+                            break;
                             
                         case 4:
                             printf("Votes: %d\n", votecount);
@@ -163,7 +169,7 @@ int main() {
                                         novote++;
                                         vote2[j] = 'N';
                                         fseek(vts,0,SEEK_SET);
-                                        for (int i=0;i<10;i++){
+                                        for (int i=0;i<50;i++){
                                             fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                                         }
                                         break;
@@ -174,7 +180,7 @@ int main() {
                                         vote2[j] = 'X';
                                         votestatus[j] = 'A';
                                         fseek(vts,0,SEEK_SET);
-                                        for (int i=0;i<10;i++){
+                                        for (int i=0;i<50;i++){
                                             fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                                         }
                                         break;
@@ -196,7 +202,7 @@ int main() {
                                         novote--;
                                         vote2[j] = 'Y';
                                         fseek(vts,0,SEEK_SET);
-                                        for (int i=0;i<10;i++){
+                                        for (int i=0;i<50;i++){
                                             fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                                         }
                                         break;
@@ -207,7 +213,7 @@ int main() {
                                         vote2[j] = 'X';
                                         votestatus[j] = 'A';
                                         fseek(vts,0,SEEK_SET);
-                                        for (int i=0;i<10;i++){
+                                        for (int i=0;i<50;i++){
                                             fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                                         }
                                         break;
@@ -221,28 +227,27 @@ int main() {
                                 break;
                             }
                         case 6:
+                            loggedin = false;
+                            loggedoff = true;
                             break;
                 }
                 }else {
                     printf("Wrong password!\n");
                     break;
                 }
-                
             }
         }
         fclose(vts);
         fopen("Votestats.txt", "r+");
+        if (loggedoff == true){
+            printf("Logged off successfully!\n");
+        }
     }
+    
+    fclose(vts);
     printf("\nVoting ended!\n");
     printf("Votes: %d\n", votecount);
     printf("Yes Votes: %d\n", yesvote);
     printf("No Votes: %d\n", novote);
-
-
-    if (loggedin == false){
-        printf("Wrong username!\n");
-    }
-    
-    
     
 }

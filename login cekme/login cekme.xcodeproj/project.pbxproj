@@ -26,7 +26,6 @@
 		00E3C244280A2355008EA6A5 /* login cekme */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "login cekme"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E3C247280A2355008EA6A5 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		00E3C24E280A2491008EA6A5 /* users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = users.txt; sourceTree = "<group>"; };
-		00E3C260280C9120008EA6A5 /* tmpin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tmpin.txt; sourceTree = "<group>"; };
 		00E3C26B280C973D008EA6A5 /* Votestats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Votestats.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +61,6 @@
 			children = (
 				00E3C247280A2355008EA6A5 /* main.c */,
 				00E3C24E280A2491008EA6A5 /* users.txt */,
-				00E3C260280C9120008EA6A5 /* tmpin.txt */,
 				00E3C26B280C973D008EA6A5 /* Votestats.txt */,
 			);
 			path = "login cekme";
