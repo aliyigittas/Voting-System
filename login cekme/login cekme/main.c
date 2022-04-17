@@ -84,9 +84,8 @@ int main() {
                     printf("2. Vote No\n");
                     printf("3. Change Password\n");
                     printf("4. Results\n");
-                    printf("5. Save votes\n");
-                    printf("6. Change Vote\n");
-                    printf("7. Log off\n");
+                    printf("5. Change Vote\n");
+                    printf("6. Log off\n");
                     printf("Your Selection: ");
                     scanf("%d",&secimoy);
                     switch(secimoy){
@@ -107,8 +106,7 @@ int main() {
                                 for (int i=0;i<10;i++){
                                     fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                                 }
-                                //dosyaya yaz burda
-                                printf("Votes saved!\n");
+                                //printf("Votes saved!\n");
                                 break;
                             }
                         case 2:
@@ -128,19 +126,11 @@ int main() {
                                 for (int i=0;i<10;i++){
                                     fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                                 }
-                                
-                                //fclose(vts);
-                                //remove(tmpvts);
-                                //rename("tmpvt.txt","Votestats.txt");
-                                //remove("tmpvt.txt");
-                                //dosyaya yaz burda
-                                printf("Votes saved!\n");
+                                //printf("Votes saved!\n");
                                 break;
                             }
                         case 3:
-                            //fseek(in, 12, SEEK_SET);
-                            //fseek(in, list.password, SEEK_SET);
-                            //list.password yerini long int olarak al yaz buraya
+                            
                             printf("Enter your new password: ");
                             scanf("%s", newpass);
                             if (strlen(newpass) == 6){
@@ -158,19 +148,8 @@ int main() {
                             printf("Yes Votes: %d\n", yesvote);
                             printf("No Votes: %d\n", novote);
                             break;
+                            
                         case 5:
-                            /*for (int i=0;i<10;i++){
-                                fprintf(tmpvts,"%c %c\n", votestatus[i],vote2[i]);
-                            }
-                            fclose(tmpvts);
-                            remove("Votestats.txt");
-                            rename("tempvt.txt","Votestats.txt");
-                            printf("Votes saved!\n");*/
-                            //fprintf(tmpvts,"%c %c", votestatus[j],vote2[j]);
-                            //fclose(tmpvts);
-                            //burada for döngüsü ile dosyaya yaz
-                            break;
-                        case 6:
                             if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("Y", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'Y')){
                                 printf("You voted YES already, are you sure to change your vote to NO?\n");
                                 printf("1. Yes\n");
@@ -183,6 +162,10 @@ int main() {
                                         yesvote--;
                                         novote++;
                                         vote2[j] = 'N';
+                                        fseek(vts,0,SEEK_SET);
+                                        for (int i=0;i<10;i++){
+                                            fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
+                                        }
                                         break;
                                     case 2:
                                         printf("Your vote is deleted\n");
@@ -190,6 +173,10 @@ int main() {
                                         votecount--;
                                         vote2[j] = 'X';
                                         votestatus[j] = 'A';
+                                        fseek(vts,0,SEEK_SET);
+                                        for (int i=0;i<10;i++){
+                                            fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
+                                        }
                                         break;
                                     case 3:
                                         printf("Operation cancelled by user.\n");
@@ -208,6 +195,10 @@ int main() {
                                         yesvote++;
                                         novote--;
                                         vote2[j] = 'Y';
+                                        fseek(vts,0,SEEK_SET);
+                                        for (int i=0;i<10;i++){
+                                            fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
+                                        }
                                         break;
                                     case 2:
                                         printf("Your vote is deleted\n");
@@ -215,6 +206,10 @@ int main() {
                                         votecount--;
                                         vote2[j] = 'X';
                                         votestatus[j] = 'A';
+                                        fseek(vts,0,SEEK_SET);
+                                        for (int i=0;i<10;i++){
+                                            fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
+                                        }
                                         break;
                                     case 3:
                                         printf("Operation cancelled by user.\n");
@@ -225,7 +220,7 @@ int main() {
                                 printf("You need to vote first!\n");
                                 break;
                             }
-                        case 7:
+                        case 6:
                             break;
                 }
                 }else {
