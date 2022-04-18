@@ -23,7 +23,7 @@ struct userlist {
 
 int main() {
     
-    FILE *in, *vts;
+    FILE *in, *vts, *usrcount;
     
     if ((in = fopen("users.txt", "r+")) == NULL) {
         fputs("Cannot open users.txt file\n", stderr);
@@ -33,25 +33,34 @@ int main() {
         fputs("Cannot open Votestats.txt file\n", stderr);
         return EXIT_FAILURE;
     }
+    if ((usrcount = fopen("Usercount.txt", "r+")) == NULL) {
+        fputs("Cannot open Usercount.txt file\n", stderr);
+        return EXIT_FAILURE;
+    }
     
-    int secimoy, changevote, yesvote = 0, novote = 0, votecount = 0;
+    int secimoy, changevote, secimadmin, yesvote = 0, novote = 0, votecount = 0;
     char username2[12];
     char password2[12];
     char username3[50][12];
     char password3[50][12];
     char newpass[100];
+    char newusername[12];
     char isvotedstatus3[50][1];
     char vote3[50][1];
     char votestatus[50]; //A means notvoted , B means voted
     char vote2[50]; //X means not voted, Y means yes, N means no
     bool loggedin = false;
-    //bool loggedoff = false;
+    bool Adminloggedin = false;
+    int Usercount[1];
+    fscanf(usrcount, "%d", &Usercount[0]);
+    //printf("%d",Usercount[0]);
+    
     
     for (int j=0;j<50;j++){ //This loop checks txt files for retrieving last the last state.
         fscanf(in, "%11s%*[ \t]%99s ", list.username[j], list.password[j]);
         memcpy(username3[j], list.username[j], sizeof(username3[j]));
         memcpy(password3[j], list.password[j], sizeof(password3[j]));
-        fscanf(vts, "%9s%*[ \t]%4s ", list.isvotedstatus[j], list.vote[j]);
+        fscanf(vts, "%s%*[ \t]%s ", list.isvotedstatus[j], list.vote[j]);
         memcpy(isvotedstatus3[j], list.isvotedstatus[j], sizeof(isvotedstatus3[j]));
         strcpy(&votestatus[j],isvotedstatus3[j]);
         memcpy(vote3[j], list.vote[j], sizeof(vote3[j]));
@@ -65,14 +74,74 @@ int main() {
         }
     }
     
-    while (votecount !=6){
+    
+    while (votecount !=Usercount[0]){
         //buraya
         printf("Enter your username: ");
         scanf("%s",username2);
         printf("Enter Your password: ");
         scanf("%s",password2);
         for (int j=0;j<50;j++){
+            if (strcmp(username2,"XXXXXXXXXXX")==0 && strcmp(password2,"XXXXXX")==0){
+                break;
+            }else if (strcmp(username2,"admin")==0 && strcmp(password2,"admin1")==0){
+                Adminloggedin = true;
+                if(Adminloggedin== true){
+                    printf("Admin Panel\n");
+                    printf("1.Add User\n");
+                    printf("2.Reset Vote Stats\n");
+                    printf("3.Exit\n");
+                    printf("Your selection: ");
+                    scanf("%d",&secimadmin);
+                    switch(secimadmin){
+                        case 1:
+                            //ADD USER
+                            printf("Enter username to register: ");
+                            scanf("%s",newusername);
+                            printf("Enter a password: ");
+                            scanf("%s",newpass);
+                            if (strlen(newusername)==11 && strlen(newpass)==6){
+                                strcpy(username3[Usercount[0]],newusername);
+                                strcpy(password3[Usercount[0]],newpass);
+                                printf("Username is Saved!\n");
+                                Usercount[0]++;
+                                fseek(in,0,SEEK_SET);
+                                for (int i=0;i<50;i++){
+                                    fprintf(in,"%s %s\n", username3[i],password3[i]);
+                                }
+                                fclose(in);
+                                fseek(usrcount, 0, SEEK_SET);
+                                fprintf(usrcount, "%d", Usercount[0]);
+                                fclose(usrcount);
+                                fopen("users.txt", "r+");
+                            }else {
+                                printf("Your username must 12, your password must 6 characters long!\n");
+                            }
+                            
+                        case 2:
+                            //RESET VOTES
+                            for(int j=0; j<50; j++){
+                                votestatus[j]='A';
+                                vote2[j]='X';
+                            }
+                            fseek(vts,0,SEEK_SET);
+                            for (int i=0;i<50;i++){
+                                fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
+                            }
+                            fclose(vts);
+                            fopen("Votestats.txt", "r+");
+                            break;
+                            
+                        case 3:
+                            Adminloggedin = false;
+                            break;
+                            //LOG OFF
+                    }
+                    break;
+                }
+            }
             if (strcmp(username2,username3[j])==0 && strcmp(password2,password3[j])==0){
+                
                 loggedin = true;
             }
             if (loggedin == true){
@@ -251,7 +320,17 @@ int main() {
         
     fclose(vts);
     fclose(in);
+    
     printf("\nVoting ended!\n");
+    if(votecount == Usercount[0]){
+        if (yesvote > novote){
+            printf("\nThe result is YES.\n");
+        }else if (yesvote == novote){
+            printf("\nVotes are equal.\n");
+        }else{
+            printf("\nThe result is NO.\n");
+        }
+    }
     printf("Votes: %d\n", votecount);
     printf("Yes Votes: %d\n", yesvote);
     printf("No Votes: %d\n", novote);

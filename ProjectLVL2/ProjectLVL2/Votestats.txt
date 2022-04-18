@@ -1,5 +1,5 @@
 A X
-B Y
+A X
 A X
 A X
 A X
