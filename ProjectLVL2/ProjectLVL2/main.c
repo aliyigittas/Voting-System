@@ -115,7 +115,7 @@ int main() {
                                 fclose(usrcount);
                                 fopen("users.txt", "r+");
                             }else {
-                                printf("Your username must 12, your password must 6 characters long!\n");
+                                printf("Your username must 11, your password must 6 characters long!\n");
                             }
                             
                         case 2:
