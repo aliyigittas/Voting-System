@@ -1,8 +1,8 @@
 A X
 B Y
-B Y
-B N
-B Y
+A X
+A X
+A X
 A X
 A X
 A X

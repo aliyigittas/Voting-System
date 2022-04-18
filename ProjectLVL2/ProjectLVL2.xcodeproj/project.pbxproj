@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E3C248280A2355008EA6A5 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00E3C247280A2355008EA6A5 /* main.c */; };
+		0034365A280D6B72001FD2E3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00343659280D6B72001FD2E3 /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		00E3C242280A2355008EA6A5 /* CopyFiles */ = {
+		00343654280D6B72001FD2E3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,14 +23,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00E3C244280A2355008EA6A5 /* login cekme */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "login cekme"; sourceTree = BUILT_PRODUCTS_DIR; };
-		00E3C247280A2355008EA6A5 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		00E3C24E280A2491008EA6A5 /* users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = users.txt; sourceTree = "<group>"; };
-		00E3C26B280C973D008EA6A5 /* Votestats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Votestats.txt; sourceTree = "<group>"; };
+		00343656280D6B72001FD2E3 /* ProjectLVL2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ProjectLVL2; sourceTree = BUILT_PRODUCTS_DIR; };
+		00343659280D6B72001FD2E3 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		00343660280D6BEA001FD2E3 /* users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = users.txt; sourceTree = "<group>"; };
+		00343661280D6BEA001FD2E3 /* Votestats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Votestats.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		00E3C241280A2355008EA6A5 /* Frameworks */ = {
+		00343653280D6B72001FD2E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,67 +40,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E3C23B280A2355008EA6A5 = {
+		0034364D280D6B72001FD2E3 = {
 			isa = PBXGroup;
 			children = (
-				00E3C246280A2355008EA6A5 /* login cekme */,
-				00E3C245280A2355008EA6A5 /* Products */,
+				00343658280D6B72001FD2E3 /* ProjectLVL2 */,
+				00343657280D6B72001FD2E3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		00E3C245280A2355008EA6A5 /* Products */ = {
+		00343657280D6B72001FD2E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00E3C244280A2355008EA6A5 /* login cekme */,
+				00343656280D6B72001FD2E3 /* ProjectLVL2 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00E3C246280A2355008EA6A5 /* login cekme */ = {
+		00343658280D6B72001FD2E3 /* ProjectLVL2 */ = {
 			isa = PBXGroup;
 			children = (
-				00E3C247280A2355008EA6A5 /* main.c */,
-				00E3C24E280A2491008EA6A5 /* users.txt */,
-				00E3C26B280C973D008EA6A5 /* Votestats.txt */,
+				00343659280D6B72001FD2E3 /* main.c */,
+				00343660280D6BEA001FD2E3 /* users.txt */,
+				00343661280D6BEA001FD2E3 /* Votestats.txt */,
 			);
-			path = "login cekme";
+			path = ProjectLVL2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E3C243280A2355008EA6A5 /* login cekme */ = {
+		00343655280D6B72001FD2E3 /* ProjectLVL2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E3C24B280A2355008EA6A5 /* Build configuration list for PBXNativeTarget "login cekme" */;
+			buildConfigurationList = 0034365D280D6B72001FD2E3 /* Build configuration list for PBXNativeTarget "ProjectLVL2" */;
 			buildPhases = (
-				00E3C240280A2355008EA6A5 /* Sources */,
-				00E3C241280A2355008EA6A5 /* Frameworks */,
-				00E3C242280A2355008EA6A5 /* CopyFiles */,
+				00343652280D6B72001FD2E3 /* Sources */,
+				00343653280D6B72001FD2E3 /* Frameworks */,
+				00343654280D6B72001FD2E3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "login cekme";
-			productName = "login cekme";
-			productReference = 00E3C244280A2355008EA6A5 /* login cekme */;
+			name = ProjectLVL2;
+			productName = ProjectLVL2;
+			productReference = 00343656280D6B72001FD2E3 /* ProjectLVL2 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		00E3C23C280A2355008EA6A5 /* Project object */ = {
+		0034364E280D6B72001FD2E3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					00E3C243280A2355008EA6A5 = {
+					00343655280D6B72001FD2E3 = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 00E3C23F280A2355008EA6A5 /* Build configuration list for PBXProject "login cekme" */;
+			buildConfigurationList = 00343651280D6B72001FD2E3 /* Build configuration list for PBXProject "ProjectLVL2" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -108,29 +108,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 00E3C23B280A2355008EA6A5;
-			productRefGroup = 00E3C245280A2355008EA6A5 /* Products */;
+			mainGroup = 0034364D280D6B72001FD2E3;
+			productRefGroup = 00343657280D6B72001FD2E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00E3C243280A2355008EA6A5 /* login cekme */,
+				00343655280D6B72001FD2E3 /* ProjectLVL2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		00E3C240280A2355008EA6A5 /* Sources */ = {
+		00343652280D6B72001FD2E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E3C248280A2355008EA6A5 /* main.c in Sources */,
+				0034365A280D6B72001FD2E3 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		00E3C249280A2355008EA6A5 /* Debug */ = {
+		0034365B280D6B72001FD2E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		00E3C24A280A2355008EA6A5 /* Release */ = {
+		0034365C280D6B72001FD2E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,7 +239,7 @@
 			};
 			name = Release;
 		};
-		00E3C24C280A2355008EA6A5 /* Debug */ = {
+		0034365E280D6B72001FD2E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -249,7 +249,7 @@
 			};
 			name = Debug;
 		};
-		00E3C24D280A2355008EA6A5 /* Release */ = {
+		0034365F280D6B72001FD2E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -262,25 +262,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E3C23F280A2355008EA6A5 /* Build configuration list for PBXProject "login cekme" */ = {
+		00343651280D6B72001FD2E3 /* Build configuration list for PBXProject "ProjectLVL2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				00E3C249280A2355008EA6A5 /* Debug */,
-				00E3C24A280A2355008EA6A5 /* Release */,
+				0034365B280D6B72001FD2E3 /* Debug */,
+				0034365C280D6B72001FD2E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00E3C24B280A2355008EA6A5 /* Build configuration list for PBXNativeTarget "login cekme" */ = {
+		0034365D280D6B72001FD2E3 /* Build configuration list for PBXNativeTarget "ProjectLVL2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				00E3C24C280A2355008EA6A5 /* Debug */,
-				00E3C24D280A2355008EA6A5 /* Release */,
+				0034365E280D6B72001FD2E3 /* Debug */,
+				0034365F280D6B72001FD2E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 00E3C23C280A2355008EA6A5 /* Project object */;
+	rootObject = 0034364E280D6B72001FD2E3 /* Project object */;
 }

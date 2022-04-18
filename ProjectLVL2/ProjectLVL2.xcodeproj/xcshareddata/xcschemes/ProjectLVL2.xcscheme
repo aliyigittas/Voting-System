@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00E3C243280A2355008EA6A5"
-               BuildableName = "login cekme"
-               BlueprintName = "login cekme"
-               ReferencedContainer = "container:login cekme.xcodeproj">
+               BlueprintIdentifier = "00343655280D6B72001FD2E3"
+               BuildableName = "ProjectLVL2"
+               BlueprintName = "ProjectLVL2"
+               ReferencedContainer = "container:ProjectLVL2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/aliyigittas/Developer/login cekme/login cekme"
+      customWorkingDirectory = "/Users/aliyigittas/Developer/ProjectLVL2/ProjectLVL2"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -45,10 +45,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "00E3C243280A2355008EA6A5"
-            BuildableName = "login cekme"
-            BlueprintName = "login cekme"
-            ReferencedContainer = "container:login cekme.xcodeproj">
+            BlueprintIdentifier = "00343655280D6B72001FD2E3"
+            BuildableName = "ProjectLVL2"
+            BlueprintName = "ProjectLVL2"
+            ReferencedContainer = "container:ProjectLVL2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,10 +62,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "00E3C243280A2355008EA6A5"
-            BuildableName = "login cekme"
-            BlueprintName = "login cekme"
-            ReferencedContainer = "container:login cekme.xcodeproj">
+            BlueprintIdentifier = "00343655280D6B72001FD2E3"
+            BuildableName = "ProjectLVL2"
+            BlueprintName = "ProjectLVL2"
+            ReferencedContainer = "container:ProjectLVL2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
