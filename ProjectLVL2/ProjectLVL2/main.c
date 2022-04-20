@@ -76,11 +76,12 @@ int main() {
     
     
     while (votecount !=Usercount[0]){
-        //buraya
+        
         printf("Enter your username: ");
         scanf("%s",username2);
         printf("Enter Your password: ");
         scanf("%s",password2);
+        
         for (int j=0;j<50;j++){
             if (strcmp(username2,"XXXXXXXXXXX")==0 && strcmp(password2,"XXXXXX")==0){
                 break;
@@ -130,6 +131,7 @@ int main() {
                             }
                             fclose(vts);
                             fopen("Votestats.txt", "r+");
+                            printf("Votes deleted succesfully! Restart the program to apply changes!\n");
                             break;
                             
                         case 3:
