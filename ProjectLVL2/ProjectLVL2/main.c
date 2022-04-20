@@ -75,7 +75,7 @@ int main() {
     }
     
     
-    while (votecount !=Usercount[0]){
+    while (yesvote <= (Usercount[0]/2)&& novote <= (Usercount[0]/2)){
         
         printf("Enter your username: ");
         scanf("%s",username2);
