@@ -13,8 +13,8 @@
 #include <stdlib.h>
 
 int main(void) {
-    //system("cls"); //this command is for macOS/Linux.
-    //system("clear"); //this command is for Windows.
+    //system("clear"); //this command is for macOS/Linux.
+    //system("cls"); //this command is for Windows.
     char isvoted[5][1]= {"0","0","0","0","0"}; //0 means not voted, 1 means voted
     int secimoy, yesvote = 0, novote = 0, votecount = 0;
     char username[5][12]= {"20201701054","12345678910","23456789101","34567891012","45678910123"}; //Usernames
