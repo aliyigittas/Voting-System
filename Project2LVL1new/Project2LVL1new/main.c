@@ -13,11 +13,11 @@
 #include <stdbool.h>
 
 int main(void) {
-    char isvoted[5][1]= {"0","0","0","0","0"};
+    char isvoted[5][1]= {"0","0","0","0","0"}; //0 means not voted, 1 means voted
     int secimoy, yesvote = 0, novote = 0, votecount = 0;
-    char username[5][12]= {"20201701054","12345678910","23456789101","34567891012","45678910123"};
+    char username[5][12]= {"20201701054","12345678910","23456789101","34567891012","45678910123"}; //Usernames
     char inputusername[12];
-    char password[5][100] = {"sifre1","sifre2","sifre3","sifre4","sifre5"};
+    char password[5][100] = {"sifre1","sifre2","sifre3","sifre4","sifre5"}; // Users' passwords
     char inputpassword[100];
     
     while (votecount!= 5){
@@ -27,9 +27,9 @@ int main(void) {
         printf("Enter Your password: ");
         scanf("%99s", inputpassword);
         
-        for (int i=0;i<5;i++){
-            if (strcmp(username[i], inputusername) == 0 && strcmp(password[i], inputpassword) == 0){
-                if (strcmp(isvoted[i], "1")==0){
+        for (int i=0;i<5;i++){ //This loop repeats 5 times to authenticate user
+            if (strcmp(username[i], inputusername) == 0 && strcmp(password[i], inputpassword) == 0){//Checking login credentials if not matched, check next one.
+                if (strcmp(isvoted[i], "1")==0){ //checking user is voted or not.
                     printf("You have already voted!\n");
                 }else {
                     printf("Please vote:\n");
@@ -40,15 +40,15 @@ int main(void) {
                     switch(secimoy){
                         case 1:
                                 printf("Your YES vote is saved!\n");
-                                yesvote = yesvote + 1;
-                                votecount = votecount + 1;
-                                strcpy(isvoted[i],"1");
+                                yesvote++;
+                                votecount++;
+                                strcpy(isvoted[i],"1"); //saving vote status.
                                 break;
                                 
                         case 2:
                                 printf("Your No vote is saved!\n");
-                                novote = novote + 1;
-                                votecount = votecount + 1;
+                                novote++;
+                                votecount++;
                                 strcpy(isvoted[i], "1");
                                 break;
                 }
@@ -56,7 +56,7 @@ int main(void) {
             }
             }
         }
-        if(votecount == 5){
+        if(votecount == 5){ //When everyone votes, this block will run.
             if (yesvote > novote){
                 printf("\nThe result is YES.\n");
             }else if (yesvote == novote){
