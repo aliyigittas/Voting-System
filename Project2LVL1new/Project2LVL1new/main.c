@@ -4,8 +4,6 @@
 //
 //  Created by Ali Yiğit Taş on 20.04.2022.
 
-//  If you get errors at system("cls"); please change "cls" to "clear". Because system("cls"); command works only Windows, system("clear"); is for macOS/Linux.
-
 #define _CRT_SECURE_NO_WARNINGS
 #pragma warning(suppress : 4996)
 #include <stdio.h>
@@ -13,8 +11,7 @@
 #include <stdlib.h>
 
 int main(void) {
-    //system("clear"); //this command is for macOS/Linux.
-    //system("cls"); //this command is for Windows.
+    system("cls||clear");
     char isvoted[5][1]= {"0","0","0","0","0"}; //0 means not voted, 1 means voted
     int secimoy, yesvote = 0, novote = 0, votecount = 0;
     char username[5][12]= {"20201701054","12345678910","23456789101","34567891012","45678910123"}; //Usernames
@@ -28,7 +25,7 @@ int main(void) {
         
         printf("Enter Your password: ");
         scanf("%99s", inputpassword);
-        //system("cls");
+        system("cls||clear"); //clears the terminal screen cls command is for Windows, clear command is for macOS/Linux.
         
         for (int i=0;i<5;i++){ //This loop repeats 5 times to authenticate user (This is 5 because there are 5 users in the system.)
             if (strcmp(username[i], inputusername) == 0 && strcmp(password[i], inputpassword) == 0){//Checking login credentials if not matched, check next one.
@@ -43,8 +40,7 @@ int main(void) {
                     scanf("%d",&secimoy);
                     switch(secimoy){
                         case 1:
-                                //system("cls");
-                                //system("clear");
+                                system("cls||clear");
                                 printf("Your YES vote is saved!\n");
                                 yesvote++;
                                 votecount++;
@@ -52,8 +48,7 @@ int main(void) {
                                 break;
                                 
                         case 2:
-                                //system("cls");
-                                //system("clear");
+                                system("cls||clear");
                                 printf("Your No vote is saved!\n");
                                 novote++;
                                 votecount++;
