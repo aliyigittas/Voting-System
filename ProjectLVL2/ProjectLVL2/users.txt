@@ -1,12 +1,12 @@
 hesap1 sifre1
 hesap2 sifre2
 hesap3 sifre3
-hesap4 ali123
+hesap4 sifre4
 hesap5 sifre5
 hesap6 sifre6
 12345678910 123456
 12345678911 ali123
-20201701054 sifre2
+20201701054 ali123
 XXXXXXXXXXX XXXXXX
 XXXXXXXXXXX XXXXXX
 XXXXXXXXXXX XXXXXX

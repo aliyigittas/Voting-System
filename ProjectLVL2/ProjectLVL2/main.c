@@ -38,20 +38,20 @@ int main() {
         return EXIT_FAILURE;
     }
     
-    int secimoy, changevote, secimadmin, yesvote = 0, novote = 0, votecount = 0;
-    char username2[12];
-    char password2[12];
-    char username3[50][12];
-    char password3[50][12];
-    char newpass[100];
-    char newusername[12];
-    char isvotedstatus3[50][1];
-    char vote3[50][1];
-    char votestatus[50]; //A means notvoted , B means voted
-    char vote2[50]; //X means not voted, Y means yes, N means no
+    int selectmenu, changevote, selectadmin, yesvote = 0, novote = 0, votecount = 0;
+    char inputusername[12];
+    char inputpassword[12];
+    char username3[50][12]; //This is a copy of list.username, i created this because admin acc. can make changes in this array.
+    char password3[50][12]; //This is a copy of list.password, i created this because admin acc. can make changes in this array.
+    char newpass[100]; //When users changes their passwords or admin adds an acc., it stores in here and program writes to file.
+    char newusername[12]; //When admin adds an account username stores in here and program writes to file.
+    char isvotedstatus3[50][1]; // This is a copy of list.votedstatus. 2D array.
+    char vote3[50][1]; // This is a copy of list.vote. 2D array.
+    char votestatus[50];//This is a copy of isvotesstatus3, the difference is this is not 2D array. A means notvoted , B means voted
+    char vote2[50]; //X means not voted, Y=yes, N=no.This is a copy of vote3,the difference is this is not 2D array. Program makes changes here and writes to file.
     bool loggedin = false;
     bool Adminloggedin = false;
-    int Usercount[1];
+    int Usercount[1]; //Admin acc. can increase this value by adding new users.
     fscanf(usrcount, "%d", &Usercount[0]);
     //printf("%d",Usercount[0]);
     
@@ -75,17 +75,17 @@ int main() {
     }
     
     
-    while (yesvote <= (Usercount[0]/2)&& novote <= (Usercount[0]/2)){
+    while (yesvote <= (Usercount[0]/2) && novote <= (Usercount[0]/2)){
         
         printf("Enter your username: ");
-        scanf("%s",username2);
+        scanf("%s",inputusername);
         printf("Enter Your password: ");
-        scanf("%s",password2);
+        scanf("%s",inputpassword);
         
         for (int j=0;j<50;j++){
-            if (strcmp(username2,"XXXXXXXXXXX")==0 && strcmp(password2,"XXXXXX")==0){
+            if (strcmp(inputusername,"XXXXXXXXXXX")==0 && strcmp(inputpassword,"XXXXXX")==0){ //Empty account
                 break;
-            }else if (strcmp(username2,"admin")==0 && strcmp(password2,"admin1")==0){
+            }else if (strcmp(inputusername,"admin")==0 && strcmp(inputpassword,"admin1")==0){ //Admin account
                 Adminloggedin = true;
                 if(Adminloggedin== true){
                     printf("Admin Panel\n");
@@ -93,8 +93,8 @@ int main() {
                     printf("2.Reset Vote Stats\n");
                     printf("3.Exit\n");
                     printf("Your selection: ");
-                    scanf("%d",&secimadmin);
-                    switch(secimadmin){
+                    scanf("%d",&selectadmin);
+                    switch(selectadmin){
                         case 1:
                             //ADD USER
                             printf("Enter username to register: ");
@@ -135,19 +135,19 @@ int main() {
                             break;
                             
                         case 3:
+                            //LOG OFF
                             Adminloggedin = false;
                             break;
-                            //LOG OFF
                     }
                     break;
                 }
             }
-            if (strcmp(username2,username3[j])==0 && strcmp(password2,password3[j])==0){
+            if (strcmp(inputusername,username3[j])==0 && strcmp(inputpassword,password3[j])==0){ //Regular user
                 
                 loggedin = true;
             }
             if (loggedin == true){
-                printf("\nWelcome %s!\n",username3[j]);
+                printf("\nWelcome %s!\n",username3[j]); //User-spesific message
                 printf("Menu:\n");
                 printf("1. Vote Yes\n");
                 printf("2. Vote No\n");
@@ -156,12 +156,13 @@ int main() {
                 printf("5. Change Vote\n");
                 printf("6. Log off\n");
                 printf("Your Selection: ");
-                scanf("%d",&secimoy);
-                switch(secimoy){
+                scanf("%d",&selectmenu);
+                switch(selectmenu){
                     case 1:
+                        //VOTE YES
                         if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("Y", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'Y')){
                             printf("You have already voted YES!\n");
-                            j--;
+                            j--; //These lines keep the program in the same user.
                             break;
                         }else if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("N", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'N')){
                             printf("You have already voted NO!\n");
@@ -169,18 +170,19 @@ int main() {
                             break;
                         }else{
                             printf("Your YES vote is saved!\n");
-                            yesvote = yesvote + 1;
-                            votecount = votecount + 1;
+                            yesvote++;
+                            votecount++;
                             votestatus[j] = 'B';
                             vote2[j] = 'Y';
-                            fseek(vts,0,SEEK_SET);
+                            fseek(vts,0,SEEK_SET); //This line moves the pointer to beginning of the file.
                             for (int i=0;i<50;i++){
-                                fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
+                                fprintf(vts,"%c %c\n", votestatus[i],vote2[i]); // This line overwrites all things in the file from beginning.
                             }
                             j--;
                             break;
                         }
                     case 2:
+                        //VOTE NO
                         if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("Y", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'Y')){
                             printf("You have already voted YES!\n");
                             j--;
@@ -191,8 +193,8 @@ int main() {
                             break;
                         }else{
                             printf("Your No vote is saved!\n");
-                            novote = novote + 1;
-                            votecount = votecount + 1;
+                            novote++;
+                            votecount++;
                             votestatus[j] = 'B';
                             vote2[j] = 'N';
                             fseek(vts,0,SEEK_SET);
@@ -203,6 +205,7 @@ int main() {
                             break;
                         }
                     case 3:
+                        //CHANGE PASSWORD
                         printf("Enter your new password: ");
                         scanf("%s", newpass);
                         if (strlen(newpass)==6){
@@ -210,7 +213,7 @@ int main() {
                             printf("Your password is changed!\n");
                             fseek(in,0,SEEK_SET);
                             for (int i=0;i<50;i++){
-                                fprintf(in,"%s %s\n", username3[i],password3[i]);
+                                fprintf(in,"%s %s\n", username3[i],password3[i]); //This line overwrites all things in the file from the beginning.
                             }
                             fclose(in);
                             fopen("users.txt", "r+");
@@ -221,6 +224,7 @@ int main() {
                         break;
                         
                     case 4:
+                        //SEE RESULTS
                         printf("Votes: %d\n", votecount);
                         printf("Yes Votes: %d\n", yesvote);
                         printf("No Votes: %d\n", novote);
@@ -228,6 +232,7 @@ int main() {
                         break;
                         
                     case 5:
+                        //CHANGE VOTE
                         if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("Y", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'Y')){
                             printf("You voted YES already, are you sure to change your vote to NO?\n");
                             printf("1. Yes\n");
@@ -308,6 +313,7 @@ int main() {
                             break;
                         }
                     case 6:
+                        //LOG OFF
                         loggedin = false;
                         break;
             }
@@ -324,7 +330,7 @@ int main() {
     fclose(in);
     
     printf("\nVoting ended!\n");
-    if(votecount == Usercount[0]){
+    if((yesvote >= (Usercount[0]/2)+1 || novote >= (Usercount[0]/2)+1) || votecount == Usercount[0]){
         if (yesvote > novote){
             printf("\nThe result is YES.\n");
         }else if (yesvote == novote){
