@@ -81,14 +81,14 @@ int main() {
         scanf("%s",inputusername);
         printf("Enter Your password: ");
         scanf("%s",inputpassword);
-        
+        //system("cls||clear"); //clears the terminal screen cls command is for Windows, clear command is for macOS/Linux.
         for (int j=0;j<50;j++){
             if (strcmp(inputusername,"XXXXXXXXXXX")==0 && strcmp(inputpassword,"XXXXXX")==0){ //Empty account
                 break;
             }else if (strcmp(inputusername,"admin")==0 && strcmp(inputpassword,"admin1")==0){ //Admin account
                 Adminloggedin = true;
                 if(Adminloggedin== true){
-                    printf("Admin Panel\n");
+                    printf("!!!Admin Panel!!!\n");
                     printf("1.Add User\n");
                     printf("2.Reset Vote Stats\n");
                     printf("3.Exit\n");
@@ -97,14 +97,14 @@ int main() {
                     switch(selectadmin){
                         case 1:
                             //ADD USER
-                            printf("Enter username to register: ");
+                            printf("Enter username to register (11 characters): ");
                             scanf("%s",newusername);
-                            printf("Enter a password: ");
+                            printf("Enter a password (6 characters): ");
                             scanf("%s",newpass);
                             if (strlen(newusername)==11 && strlen(newpass)==6){
                                 strcpy(username3[Usercount[0]],newusername);
                                 strcpy(password3[Usercount[0]],newpass);
-                                printf("Username is Saved!\n");
+                                printf("User is Saved!\n");
                                 Usercount[0]++;
                                 fseek(in,0,SEEK_SET);
                                 for (int i=0;i<50;i++){
@@ -323,6 +323,16 @@ int main() {
         }
         
     }
+    for(int j=0; j<50; j++){
+        votestatus[j]='A';
+        vote2[j]='X';
+    }
+    fseek(vts,0,SEEK_SET);
+    for (int i=0;i<50;i++){
+        fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
+    }
+    fclose(vts);
+    fopen("Votestats.txt", "r+");
         
         
         
@@ -330,7 +340,9 @@ int main() {
     fclose(in);
     
     printf("\nVoting ended!\n");
+    
     if((yesvote >= (Usercount[0]/2)+1 || novote >= (Usercount[0]/2)+1) || votecount == Usercount[0]){
+        
         if (yesvote > novote){
             printf("\nThe result is YES.\n");
         }else if (yesvote == novote){
