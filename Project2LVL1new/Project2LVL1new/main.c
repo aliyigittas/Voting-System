@@ -19,7 +19,7 @@ int main(void) {
     char password[5][100] = {"sifre1","sifre2","sifre3","sifre4","sifre5"}; // Users' passwords
     char inputpassword[100];
     
-    while (yesvote <= 2 && novote <= 2){
+    while (yesvote <= 2 && novote <= 2){ //This block actions until half of users vote same option.
         printf("Enter your username: ");
         scanf("%11s", inputusername);
         
