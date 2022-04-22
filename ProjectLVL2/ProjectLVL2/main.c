@@ -22,7 +22,7 @@ struct userlist {
 
 
 int main() {
-    //system("cls||clear");
+    system("cls||clear");
     FILE *in, *vts, *usrcount;
     
     if ((in = fopen("users.txt", "r+")) == NULL) {
@@ -81,7 +81,7 @@ int main() {
         scanf("%s",inputusername);
         printf("Enter Your password: ");
         scanf("%s",inputpassword);
-        //system("cls||clear"); //clears the terminal screen cls command is for Windows, clear command is for macOS/Linux.
+        system("cls||clear"); //clears the terminal screen cls command is for Windows, clear command is for macOS/Linux.
         for (int j=0;j<50;j++){
             if (strcmp(inputusername,"XXXXXXXXXXX")==0 && strcmp(inputpassword,"XXXXXX")==0){ //Empty account
                 break;
@@ -97,7 +97,7 @@ int main() {
                     switch(selectadmin){
                         case 1:
                             //ADD USER
-                            //system("cls||clear");
+                            system("cls||clear");
                             printf("Enter username to register (11 characters): ");
                             scanf("%s",newusername);
                             printf("Enter a password (6 characters): ");
@@ -122,7 +122,7 @@ int main() {
                             
                         case 2:
                             //RESET VOTES
-                            //system("cls||clear");
+                            system("cls||clear");
                             for(int j=0; j<50; j++){
                                 votestatus[j]='A';
                                 vote2[j]='X';
@@ -138,7 +138,7 @@ int main() {
                             
                         case 3:
                             //LOG OFF
-                            //system("cls||clear");
+                            system("cls||clear");
                             Adminloggedin = false;
                             break;
                     }
@@ -164,17 +164,17 @@ int main() {
                     case 1:
                         //VOTE YES
                         if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("Y", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'Y')){
-                            //system("cls||clear");
+                            system("cls||clear");
                             printf("You have already voted YES!\n");
                             j--; //These lines keep the program in the same user.
                             break;
                         }else if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("N", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'N')){
-                            //system("cls||clear");
+                            system("cls||clear");
                             printf("You have already voted NO!\n");
                             j--;
                             break;
                         }else{
-                            //system("cls||clear");
+                            system("cls||clear");
                             printf("Your YES vote is saved!\n");
                             yesvote++;
                             votecount++;
@@ -190,17 +190,17 @@ int main() {
                     case 2:
                         //VOTE NO
                         if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("Y", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'Y')){
-                            //system("cls||clear");
+                            system("cls||clear");
                             printf("You have already voted YES!\n");
                             j--;
                             break;
                         }else if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("N", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'N')){
-                            //system("cls||clear");
+                            system("cls||clear");
                             printf("You have already voted NO!\n");
                             j--;
                             break;
                         }else{
-                            //system("cls||clear");
+                            system("cls||clear");
                             printf("Your No vote is saved!\n");
                             novote++;
                             votecount++;
@@ -215,7 +215,7 @@ int main() {
                         }
                     case 3:
                         //CHANGE PASSWORD
-                        //system("cls||clear");
+                        system("cls||clear");
                         printf("Enter your new password: ");
                         scanf("%s", newpass);
                         if (strlen(newpass)==6){
@@ -235,7 +235,7 @@ int main() {
                         
                     case 4:
                         //SEE RESULTS
-                        //system("cls||clear");
+                        system("cls||clear");
                         printf("Votes: %d\n", votecount);
                         printf("Yes Votes: %d\n", yesvote);
                         printf("No Votes: %d\n", novote);
@@ -244,7 +244,7 @@ int main() {
                         
                     case 5:
                         //CHANGE VOTE
-                        //system("cls||clear");
+                        system("cls||clear");
                         if ((strcmp("B", list.isvotedstatus[j]) == 0 && strcmp("Y", list.vote[j]) == 0) || (votestatus[j] == 'B' && vote2[j] == 'Y')){
                             printf("You voted YES already, are you sure to change your vote to NO?\n");
                             printf("1. Yes\n");
@@ -254,7 +254,7 @@ int main() {
                             scanf("%d",&changevote);
                             switch(changevote){
                                 case 1:
-                                    //system("cls||clear");
+                                    system("cls||clear");
                                     printf("You changed your vote to NO!\n");
                                     yesvote--;
                                     novote++;
@@ -266,7 +266,7 @@ int main() {
                                     j--;
                                     break;
                                 case 2:
-                                    //system("cls||clear");
+                                    system("cls||clear");
                                     printf("Your vote is deleted\n");
                                     yesvote--;
                                     votecount--;
@@ -279,7 +279,7 @@ int main() {
                                     j--;
                                     break;
                                 case 3:
-                                    //system("cls||clear");
+                                    system("cls||clear");
                                     printf("Operation cancelled by user.\n");
                                     j--;
                                     break;
@@ -294,7 +294,7 @@ int main() {
                             scanf("%d",&changevote);
                             switch(changevote){
                                 case 1:
-                                    //system("cls||clear");
+                                    system("cls||clear");
                                     printf("You changed your vote to YES!\n");
                                     yesvote++;
                                     novote--;
@@ -306,7 +306,7 @@ int main() {
                                     j--;
                                     break;
                                 case 2:
-                                    //system("cls||clear");
+                                    system("cls||clear");
                                     printf("Your vote is deleted\n");
                                     novote--;
                                     votecount--;
@@ -319,21 +319,21 @@ int main() {
                                     j--;
                                     break;
                                 case 3:
-                                    //system("cls||clear");
+                                    system("cls||clear");
                                     printf("Operation cancelled by user.\n");
                                     j--;
                                     break;
                             }
                             
                         }else{
-                            //system("cls||clear");
+                            system("cls||clear");
                             printf("You need to vote first!\n");
                             j--;
                             break;
                         }
                     case 6:
                         //LOG OFF
-                        //system("cls||clear");
+                        system("cls||clear");
                         loggedin = false;
                         break;
             }
@@ -358,7 +358,7 @@ int main() {
         
     fclose(vts);
     fclose(in);
-    //system("cls||clear");
+    system("cls||clear");
     printf("\nVoting ended!\n");
     
     if((yesvote >= (Usercount[0]/2)+1 || novote >= (Usercount[0]/2)+1) || votecount == Usercount[0]){
