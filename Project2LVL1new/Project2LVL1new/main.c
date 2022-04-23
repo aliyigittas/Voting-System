@@ -14,7 +14,7 @@ int main(void) {
     system("cls||clear");
     char isvoted[5][1]= {"0","0","0","0","0"}; //0 means not voted, 1 means voted
     int selectvote, yesvote = 0, novote = 0, votecount = 0;
-    char username[5][12]= {"20201701054","12345678910","23456789101","34567891012","45678910123"}; //Usernames
+    char username[5][12]= {"20201701054","20201701010","23456789101","34567891012","45678910123"}; //Usernames
     char inputusername[12];
     char password[5][100] = {"sifre1","sifre2","sifre3","sifre4","sifre5"}; // Users' passwords
     char inputpassword[100];
