@@ -127,13 +127,16 @@ int main() {
                                 votestatus[j]='A';
                                 vote2[j]='X';
                             }
+                            yesvote = 0;
+                            novote = 0;
+                            votecount = 0;
                             fseek(vts,0,SEEK_SET);
                             for (int i=0;i<50;i++){
                                 fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
                             }
                             fclose(vts);
                             fopen("Votestats.txt", "r+");
-                            printf("Votes deleted succesfully! Restart the program to apply changes!\n");
+                            printf("Votes deleted succesfully!\n");
                             break;
                             
                         case 3:
