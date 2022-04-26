@@ -119,6 +119,7 @@ int main() {
                             }else {
                                 printf("Your username must 11, your password must 6 characters long!\n");
                             }
+                            break;
                             
                         case 2:
                             //RESET VOTES
@@ -334,6 +335,7 @@ int main() {
                             j--;
                             break;
                         }
+                        break;
                     case 6:
                         //LOG OFF
                         system("cls||clear");
