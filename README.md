@@ -1,6 +1,6 @@
 # CMPE140Project2
 
-## Project 2 Level 1
+## Level 1
 
 In Project 2 Level 1, the goal is to make a voting process with 2 possible answers (yes or no) with a number of participants and to decide which vote has been given more than the other. The participants must be determined with usernames and passwords before beginning the voting process and every participant have only one right to vote. We make that happen with firstly assigning 0 value to every participants voting situation (isvoted). 	At the same time we determine 5 participants’ usernames and passwords in 2 different “char” variables. Also, we define selectvote, yesvote, novote and votecount integers. 
 
@@ -9,7 +9,7 @@ A while loop that continues while votecount is not equal to 5, includes asking t
 In the last part, an if function checks that number of yes votes are bigger than 3 or number of no votes bigger than 3 or number of total votes is equal to 5. Then every time that a user votes the other if functions check that whether yes is more than no, no is more than yes then if one of the both options ends up being true, the program shows the results. 
 
 ----------
-## Project 2 Level 2
+## Level 2
 
 --> We create a structure that contains username, password, isvotedstatus and vote. We will use these sequences to read the articles on the files in order to be able to perform the operation. 
 
