@@ -373,6 +373,18 @@ int main() {
     
     if((yesvote >= (Usercount[0]/2)+1 || novote >= (Usercount[0]/2)+1) || votecount == Usercount[0]){
     jump:
+        fopen("Votestats.txt", "r+");
+        for(int j=0; j<50; j++){
+            votestatus[j]='A';
+            vote2[j]='X';
+        }
+        fseek(vts,0,SEEK_SET);
+        for (int i=0;i<50;i++){
+            fprintf(vts,"%c %c\n", votestatus[i],vote2[i]);
+        }
+        fclose(vts);
+        
+        
         if (yesvote > novote){
             printf("\nThe result is YES.\n");
         }else if (yesvote == novote){
