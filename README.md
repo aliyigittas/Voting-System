@@ -25,7 +25,7 @@ In the last part, an if function checks that number of yes votes are bigger than
 
 --> When voting, it is checked whether this user has voted before or not. If the user has not voted before, "your vote has been saved" is printed on the screen and the user's given vote is changed in the corresponding variable as yes or no. The user's voting status is changed via the corresponding array, and the entire array is printed to the file from the very beginning.
 
---> In the password change section, first the user is asked to log in. Then, asked to enter a new 6-charactered password. The saved password in the array is changed and the entire array is printed to the file from the very beginning. 
+--> In the password change section, first the user is asked to enter a new 6-charactered password. The saved password in the array is changed and the entire array is printed to the file from the very beginning. 
 
 --> When the user presses the option to see the votes, they can see the votes cast up to that moment. 
 
