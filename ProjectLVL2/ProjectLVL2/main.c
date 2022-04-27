@@ -225,7 +225,7 @@ int main() {
                     case 3:
                         //CHANGE PASSWORD
                         system("cls||clear");
-                        printf("Enter your new password: ");
+                        printf("Enter your new password (6 characters): ");
                         scanf("%s", newpass);
                         if (strlen(newpass)==6){
                             strcpy(password3[j],newpass);
