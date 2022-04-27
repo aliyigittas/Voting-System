@@ -8,16 +8,16 @@ In the last part, an if function checks that number of yes votes are bigger than
 
 ----------
 In Project 2 Level 2:
--> We create a structure that contains username, password, isvotedstatus and vote. We will use these sequences to read, delete and print the articles on the files in order to be able to perform the operation. 
--> We are creating arrays again so that we can easily make changes to them. Before requesting user input, the program scans the files, transfers them to the arrays, and restores them to their former state. 
--> We're looking at whether more than half of those used in the While cycle voted yes or no.
--> Then, we are logging in as a user and we have written an if command so that the fields designated with X are not considered users in the file in which the users are registered. 
--> An admin panel has been created that can add new users and manage the current voting status. 
--> If the entered username and password match the one registered in the system, the login is accepted. From the menu that meets the user, the user can vote, change the password, change the vote he/she has given, see the results and log out. 
--> When voting, it is checked whether this user has voted before or not. If the user has not voted before, "your vote has been saved" is printed on the screen and the user's given vote is changed in the corresponding variable as yes or no. The user's voting status is changed via the corresponding array, and the entire array is printed to the file from the very beginning.
--> In the password change section, first the user is asked to log in. Then, asked to enter a new 6-charactered password. The saved password in the array is changed and the entire array is printed to the file from the very beginning. 
--> When the user presses the option to see the votes, they can see the votes cast up to that moment. 
--> To change the vote, it is first checked whether the user voted or not, then if he voted yes, the program asks if he wants to change the vote to no. At the same time, the user has the right to delete the vote. The same applies for a no vote. When the vote is changed, the new vote is changed on the corresponding array and the entire array is printed to the file from the beginning. 
--> After the voting is over, the program shows the voting status on the screen and resets the file containing the voting status. 
--> If the yes vote is more, the result is shown as yes, and if the no vote is more, the result is shown as no. 
--> User login is not allowed after the result of the vote is clearly visible or after everyone has voted. And the program ends.
+--> We create a structure that contains username, password, isvotedstatus and vote. We will use these sequences to read, delete and print the articles on the files in order to be able to perform the operation. 
+--> We are creating arrays again so that we can easily make changes to them. Before requesting user input, the program scans the files, transfers them to the arrays, and restores them to their former state. 
+--> We're looking at whether more than half of those used in the While cycle voted yes or no.
+--> Then, we are logging in as a user and we have written an if command so that the fields designated with X are not considered users in the file in which the users are registered. 
+--> An admin panel has been created that can add new users and manage the current voting status. 
+--> If the entered username and password match the one registered in the system, the login is accepted. From the menu that meets the user, the user can vote, change the password, change the vote he/she has given, see the results and log out. 
+--> When voting, it is checked whether this user has voted before or not. If the user has not voted before, "your vote has been saved" is printed on the screen and the user's given vote is changed in the corresponding variable as yes or no. The user's voting status is changed via the corresponding array, and the entire array is printed to the file from the very beginning.
+--> In the password change section, first the user is asked to log in. Then, asked to enter a new 6-charactered password. The saved password in the array is changed and the entire array is printed to the file from the very beginning. 
+--> When the user presses the option to see the votes, they can see the votes cast up to that moment. 
+--> To change the vote, it is first checked whether the user voted or not, then if he voted yes, the program asks if he wants to change the vote to no. At the same time, the user has the right to delete the vote. The same applies for a no vote. When the vote is changed, the new vote is changed on the corresponding array and the entire array is printed to the file from the beginning. 
+--> After the voting is over, the program shows the voting status on the screen and resets the file containing the voting status. 
+--> If the yes vote is more, the result is shown as yes, and if the no vote is more, the result is shown as no. 
+--> User login is not allowed after the result of the vote is clearly visible or after everyone has voted. And the program ends.
