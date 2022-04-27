@@ -154,6 +154,11 @@ int main() {
                 loggedin = true;
             }
             if (loggedin == true){
+                if (votecount == Usercount[0]){
+                    loggedin = false;
+                    goto jump;
+                    break;
+                }
                 printf("\nWelcome %s!\n",username3[j]); //User-spesific message
                 printf("Menu:\n");
                 printf("1. Vote Yes\n");
@@ -367,7 +372,7 @@ int main() {
     printf("\nVoting ended!\n");
     
     if((yesvote >= (Usercount[0]/2)+1 || novote >= (Usercount[0]/2)+1) || votecount == Usercount[0]){
-        
+    jump:
         if (yesvote > novote){
             printf("\nThe result is YES.\n");
         }else if (yesvote == novote){
@@ -375,6 +380,7 @@ int main() {
         }else{
             printf("\nThe result is NO.\n");
         }
+        
     }
     printf("Votes: %d\n", votecount);
     printf("Yes Votes: %d\n", yesvote);
