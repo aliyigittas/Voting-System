@@ -37,6 +37,6 @@ In the last part, an if function checks that number of yes votes are bigger than
 
 --> User login is not allowed after the result of the vote is clearly visible or after everyone has voted. And the program ends.
 
-# Update
+### Update
 These X's in the users.txt and Votestats.txt are not needed for now because without them the program does not write weird things in blank areas like before. These weird things was like that: random combination of strings and numbers, 0, /System/Library/Application Support, etc. 
 
