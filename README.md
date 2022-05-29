@@ -11,7 +11,7 @@ In the last part, an if function checks that number of yes votes are bigger than
 ----------
 ## Level 2
 
---> We create a structure that contains username, password, isvotedstatus and vote. We will use these sequences to read the articles on the files in order to be able to perform the operation. 
+--> We created a structure that contains username, password, isvotedstatus and vote. We will use these sequences to read the articles on the files in order to be able to perform the operation. 
 
 --> We are creating arrays again so that we can easily make changes to them. Before requesting user input, the program scans the files, transfers them to the arrays, and restores them to their former state. 
 
