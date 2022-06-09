@@ -1,4 +1,4 @@
-# CMPE140Project2
+# Voting System in C
 
 ## Level 1
 
